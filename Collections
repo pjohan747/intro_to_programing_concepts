@@ -1,0 +1,45 @@
+  def getLetterGrade(avg):
+    if avg >= 90:
+        return "A"
+    elif avg >= 80:
+        return "B"
+    elif avg >= 70:
+        return "C"
+    elif avg >= 60:
+        return "D"
+    else:
+        return "F"
+
+studentName = input("please enter the student name ")
+
+inputGrades = int(input("please enter the next grade"))
+
+gradeList = []
+
+gradeList.append(inputGrades)
+
+inputGrades = int(input("please enter the next grade"))
+gradeList.append(inputGrades)
+
+inputGrades = int(input("please enter the next grade"))
+gradeList.append(inputGrades)
+
+inputGrades = int(input("please enter the next grade"))
+gradeList.append(inputGrades)
+
+inputGrades = int(input("please enter the next grade"))
+gradeList.append(inputGrades)
+
+average = (gradeList[0] + gradeList[1] + gradeList[2] + gradeList[3] + gradeList[4]) / 5
+
+letterGrade = getLetterGrade(average)
+
+print()
+print(studentName)
+print()
+print("Average:", round(average, 1))
+print()
+print("Letter Grade:", letterGrade)
+
+
+
