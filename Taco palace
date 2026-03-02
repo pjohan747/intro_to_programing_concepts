@@ -1,0 +1,56 @@
+# Taco Palace Ordering System
+# COP1000C Beginner Assignment
+
+# Welcome message
+print("Welcome to Taco Palace!")
+print("Please view the menu below and enter the number that represents your selection.")
+
+# Variables
+total = 0
+order_list = []
+
+# Loop
+while True:
+    print("\nTaco Palace Menu")
+    print("1. Taco - $2.50")
+    print("2. Burrito - $5.00")
+    print("3. Nachos - $4.25")
+    print("4. Soft Drink - $1.75")
+    print("5. Quit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        print("You selected a Taco")
+        order_list.append("Taco")
+        total += 2.50
+
+    elif choice == 2:
+        print("You selected a Burrito")
+        order_list.append("Burrito")
+        total += 5.00
+
+    elif choice == 3:
+        print("You selected Nachos")
+        order_list.append("Nachos")
+        total += 4.25
+
+    elif choice == 4:
+        print("You selected a Soft Drink")
+        order_list.append("Soft Drink")
+        total += 1.75
+
+    elif choice == 5:
+        break
+
+    else:
+        print("Invalid selection. Please try again.")
+
+# Final Output
+print("\nOrder Summary:")
+
+if len(order_list) > 0:
+    print("You ordered:", ", ".join(order_list))
+    print("Your total is: $" + format(total, ".2f"))
+else:
+    print("You did not order anything.")
