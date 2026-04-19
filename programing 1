@@ -1,0 +1,30 @@
+# Weather Severity Project
+
+total_rain = 0.0
+total_wind = 0.0
+days = 0
+
+while True:
+    data = input().split()
+    rain = float(data[0])
+
+    # Sentinel check
+    if rain == -1.0:
+        break
+
+    wind = float(data[1])
+
+    total_rain += rain
+    total_wind += wind
+    days += 1
+
+# Calculations
+average_rain = total_rain / days
+average_wind = total_wind / days
+
+weather_severity = (average_rain * 10) + average_wind
+
+# Output
+print("The average rain is", round(average_rain, 1), "inches")
+print("The average wind is", round(average_wind, 1), "mph")
+print("The weather severity for these", days, "readings is:", round(weather_severity, 1))
