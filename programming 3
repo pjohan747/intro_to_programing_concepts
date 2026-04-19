@@ -1,0 +1,53 @@
+# 20 seats total (1–20)
+# Seats 1–4 = First Class (fee applied)
+# Seats 5–20 = Regular seats
+# Seats 17–20 = Emergency seats (require confirmation)
+
+seats_taken = []
+
+FIRST_CLASS_FEE = 50
+
+
+while True:
+    print("\n--- AIRPLANE SEAT BOOKING ---")
+    print("Seats available: 1 - 20")
+    print("Enter -1 to stop booking")
+
+    choice = int(input("Select a seat number: "))
+
+    if choice == -1:
+        break
+
+    if choice < 1 or choice > 20:
+        print("Invalid seat number.")
+        continue
+
+    if choice in seats_taken:
+        print("Seat already taken. Choose another seat.")
+        continue
+
+    # Emergency seats check
+    if 17 <= choice <= 20:
+        confirm = input("This is an emergency exit seat. You must agree to assist in emergencies (yes/no): ")
+        if confirm.lower() != "yes":
+            print("Seat not assigned.")
+            continue
+
+    # First class fee
+    if 1 <= choice <= 4:
+        print("First Class seat selected. Fee: $" + str(FIRST_CLASS_FEE))
+        payment = float(input("Enter payment: "))
+
+        if payment < FIRST_CLASS_FEE:
+            print("Not enough payment. Seat not booked.")
+            continue
+
+        change = payment - FIRST_CLASS_FEE
+        print("Seat booked in First Class. Change: $" + str(round(change, 2)))
+
+    else:
+        print("Regular seat booked successfully.")
+
+    seats_taken.append(choice)
+
+print("\nFinal booked seats:", seats_taken)
